@@ -10,6 +10,8 @@ Vue.config.productionTip = false
 Vue.use(Vant);
 window.cwData = {};
 window.cwData.$axios = axios;
+window.cwData.$imgs = [];
+window.cwData.$imgBase = '';
 
 new Vue({
   router,

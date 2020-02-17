@@ -38,14 +38,14 @@ export default {
         window.console.log(index);
     },
     onClickBack(){
-        this.$router.push('/' + this.imageIndex);
+        this.$router.push('/com-hello/' + this.imageIndex);
     }
   },
 
   mounted(){    
       window.console.log("获取数据" + this.imageIndex);
-    for(let i = 1;i < 6; i++){
-        this.images.push(require("../assets/beauty0" +i + ".jpg"));
+    for(let i = 0;i < window.cwData.$imgs.length; i++){
+        this.images.push(window.cwData.$imgBase + window.cwData.$imgs[i]);
     }
   }
 }

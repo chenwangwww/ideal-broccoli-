@@ -40,9 +40,10 @@ export default {
   },
 
   mounted(){
-    for(let i = 1;i < 6; i++){
-      this.images.push(require("../assets/beauty0" +i + ".jpg"));
+    for(let i = 0; i < window.cwData.$imgs.length; i++){
+      this.images.push(window.cwData.$imgBase + window.cwData.$imgs[i]);
     }
+
     this.$refs.swipe.swipeTo(this.imageIndex);
   },
   created(){
