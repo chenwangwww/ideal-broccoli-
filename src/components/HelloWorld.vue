@@ -21,8 +21,6 @@ import { Toast } from 'vant';
 export default {
   name: 'HelloWorld',
 
-  props: ['imageIndex'],
-
   data(){
     return {
       images: []
@@ -35,19 +33,37 @@ export default {
     },
 
     onClick($event, index){
-      this.$router.push('/com-grid/' + index);
+      let self = this;
+      window.cwData.$axios.get('/index.php?s=index/index/getDetail.html',{       // 还可以直接把参数拼接在url后边
+        params:{
+            code: index
+        }
+      }).then(function(res){
+          let result = res.data;
+          window.console.log(result);
+          if(result.code === 1){
+            window.cwData.$selectedIndex = index;
+            window.cwData.detail.$prefix = result.data.prefix;
+            window.cwData.detail.$count = result.data.count;
+            self.$router.push('/com-grid/');
+          }else{
+            Toast(result.msg);   
+          }
+      }).catch(function (error) {
+          window.console.log(error);
+      });
     }
   },
 
   mounted(){
     for(let i = 0; i < window.cwData.$imgs.length; i++){
-      this.images.push(window.cwData.$imgBase + window.cwData.$imgs[i]);
+      this.images.push(window.cwData.$imgBase + window.cwData.$imgs[i]['url']);
     }
 
-    this.$refs.swipe.swipeTo(this.imageIndex);
+    this.$refs.swipe.swipeTo(window.cwData.$selectedIndex);
   },
   created(){
-    Toast('获取数据：' + this.imageIndex);   
+      
   }
 }
 </script>

@@ -42,7 +42,7 @@ export default {
           if(result.code === 1){
             window.cwData.$imgs = result.data.imgs;
             window.cwData.$imgBase = result.data.imgBase;
-            self.$router.push('/com-hello/0');
+            self.$router.push('/com-hello');
           }else{
             Toast(result.msg);   
           }

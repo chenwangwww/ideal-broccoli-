@@ -12,6 +12,12 @@ window.cwData = {};
 window.cwData.$axios = axios;
 window.cwData.$imgs = [];
 window.cwData.$imgBase = '';
+window.cwData.$selectedIndex = 0;
+window.cwData.$selectedDetailIndex = 0;
+window.cwData.detail = {};
+window.cwData.detail.$prefix = '';
+window.cwData.detail.$count = 0;
+window.cwData.$gridYOffset = 0;
 
 new Vue({
   router,
