@@ -47,7 +47,7 @@ export default {
 
   mounted(){
     for(let i = 1; i <= window.cwData.detail.$count; i++){
-      this.images.push(window.cwData.$imgBase + '/' + window.cwData.detail.$prefix + '/' + window.cwData.detail.$prefix + i + ".png");
+      this.images.push(window.cwData.$imgBase + '/' + window.cwData.detail.$prefix + '/' + i + ".jpg");
     }
 
     this.$refs.swipe.swipeTo(window.cwData.$selectedDetailIndex);
